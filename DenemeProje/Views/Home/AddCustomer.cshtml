@@ -1,0 +1,78 @@
+﻿
+
+<form asp-controller="Home" asp-action="AddCustomer" method="post" id="customerform">
+
+    <div class="form-group">
+        <label for="name">İsim</label>
+        <input type="text" class="form-control" id="name" name="name">
+    </div>
+    <div class="form-group">
+        <label for="surname">Soyisim</label>
+        <input type="text" class="form-control" id="surname" name="surname">
+    </div>
+    <div class="form-group">
+        <label for="age">Yaş</label>
+        <input type="text" class="form-control" id="age" name="age">
+    </div>
+
+    <div class="form-group">
+        <label for="mail">Email</label>
+        <input type="email" class="form-control" id="mail" name="mail">
+
+    </div>
+
+    <button type="submit" class="btn btn-primary">Ekle</button>
+
+</form>
+@section Scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script>
+
+        $(document).ready(function ()
+        {
+            $("#customerform").validate({
+                rules: {
+                    name: {
+                        required: true,
+
+                    },
+                    mail: {
+                        required: true,
+                       
+                    },
+                    surname: {
+                        required: true,
+
+                    },
+                    age: {
+                        required: true,
+
+                    }
+                },
+                messages: {
+                    name: {
+                        required: "İsim Giriniz",
+                    },
+                    mail: {
+                        required: "Mail Giriniz",
+
+                    },
+                    surname: {
+                        required: "Soyad Giriniz",
+
+                    },
+                    age: {
+                        required: "Yaş Giriniz",
+
+                    }
+                },
+                submitHandler: function (form)
+                {
+                    form.submit();
+                }
+            });
+        });
+
+    </script>
+
+}
